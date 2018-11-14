@@ -1,0 +1,1 @@
+INSERT INTO Account (id, firstName, secondName, accountNumber) VALUES (1, 'John Smith', 'john.smith@mailinator.com', 1231) 
