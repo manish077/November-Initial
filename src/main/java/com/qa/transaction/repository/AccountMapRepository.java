@@ -27,7 +27,7 @@ public class AccountMapRepository implements AccountRepository {
 	public AccountMapRepository() {
 		 this.accountMap = new HashMap<Long, Account>();
 		 ID = INITIAL_COUNT;
-//		 initAccountMap();
+		 initAccountMap();
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class AccountMapRepository implements AccountRepository {
 	
 	@Override
 	public String updateAccount(Long id, String accountToUpdate) {
-		Account newAccount = util.getObjectForJSON(accountToUpdate, Account.class);
+		Account newAccount = JSONUtil.getObjectForJSON(accountToUpdate, Account.class);
 		accountMap.put(id,  newAccount);
 		return accountToUpdate;
 	}
@@ -45,7 +45,7 @@ public class AccountMapRepository implements AccountRepository {
 	@Override
 	public String createAccount (String account) {
 		ID++;
-		Account newAccount = util.getObjectForJSON(account, Account.class);
+		Account newAccount = JSONUtil.getObjectForJSON(account, Account.class);
 		accountMap.put(ID, newAccount);
 		return account;
 	}
@@ -57,7 +57,7 @@ public class AccountMapRepository implements AccountRepository {
 	}
 	
 	private void initAccountMap() {
-		Account account = new Account("Manish", "Seth", 1234);
+		Account account = new Account((long) 1,"Manish", "Seth", 1234);
 		accountMap.put(1L, account);
 	}
 }

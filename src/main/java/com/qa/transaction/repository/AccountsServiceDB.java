@@ -36,9 +36,9 @@ public class AccountsServiceDB implements AccountRepository{
 	@Override
 	@Transactional(REQUIRED)
 	public String createAccount(String account) {
-		Account anAccount = util.getObjectForJSON(account, Account.class);
+		Account anAccount = JSONUtil.getObjectForJSON(account, Account.class);
 		manager.persist(anAccount);
-		return "{\"message\": \"account successfully deleted\"}";
+		return "{\"message\": \"account successfully added\"}";
 	}
 	
 	@Override
@@ -58,7 +58,7 @@ public class AccountsServiceDB implements AccountRepository{
 	@Override
 	@Transactional(REQUIRED)
 	public String updateAccount(Long id, String accountToUpdate) {
-		Account updatedAccount = util.getObjectForJSON(accountToUpdate, Account.class);
+		Account updatedAccount = JSONUtil.getObjectForJSON(accountToUpdate, Account.class);
 		Account accountFromDB = findAccount(id);
 		if (accountToUpdate != null) {
 			accountFromDB = updatedAccount;
