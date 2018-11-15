@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 @Entity
 //@Table
@@ -28,6 +28,9 @@ public class Account {
 		this.secondName = secondName;
 		this.accountNumber = accountNumber;
 	}
+	
+	public Account() {}
+	
 
 	public Long getId() {
 		return id;
